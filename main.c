@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 static int total = 0;
 
@@ -21,14 +22,21 @@ int get(void)
 	return total;
 }
 
-int main(void)
+int main(int argc, char* argcv[])
 {
-	int i = 0;
-
-	init();
-	for(i = 0; i < 1000; i++) {
-		add(i);
+	if(argc != 2) {
+		/* Todo:本来はここでヘルプを表示する */
+		return -1;
 	}
-	printf("total = %d\n", get());
-	return 0;
+	{
+		int i = 0;
+		/* Todo:本来は文字列チェックをするべき */
+		int count = atoi(argcv[1]);
+		init();
+		for(i = 0; i < count; i++) {
+			add(i);
+		}
+		printf("total = %d\n", get());
+		return 0;
+	}
 }
