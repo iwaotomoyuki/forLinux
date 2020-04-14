@@ -1,4 +1,3 @@
 void test(void)
 {
-	return;
 }
